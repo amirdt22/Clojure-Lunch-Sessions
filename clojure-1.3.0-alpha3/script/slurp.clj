@@ -1,0 +1,1 @@
+(time (slurp System/in))

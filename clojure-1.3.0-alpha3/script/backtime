@@ -1,0 +1,8 @@
+#!/bin/sh
+
+script/timeat master
+script/timeat "master@{1 months ago}"
+script/timeat "master@{2 months ago}"
+script/timeat "master@{3 months ago}"
+script/timeat "master@{4 months ago}"
+script/timeat "master@{5 months ago}"

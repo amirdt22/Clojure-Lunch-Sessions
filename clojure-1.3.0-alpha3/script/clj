@@ -1,0 +1,11 @@
+#!/bin/sh
+
+CLASSPATH=src/clj:test:test-classes:classes/:script/jline-0.9.94.jar:../clojure-contrib/target/clojure-contrib-1.2.0-SNAPSHOT.jar
+
+if [ -z "$1" ]; then
+   exec java -server jline.ConsoleRunner clojure.main
+else
+   SCRIPT=$(dirname $1)
+   export CLASSPATH=$SCRIPT/*:$SCRIPT:$CLASSPATH
+   exec java -Xmx3G -server clojure.main "$1" "$@"
+fi

@@ -1,0 +1,6 @@
+ant
+ant test
+pushd ../clojure-contrib
+# mvn compile -Dclojure.jar=/Users/stuart/repos/clojure/clojure.jar
+mvn test -Dclojure.jar=/Users/stuart/repos/clojure/clojure.jar
+popd

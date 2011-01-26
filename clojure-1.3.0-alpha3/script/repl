@@ -1,0 +1,8 @@
+#!/bin/sh
+export DYLD_LIBRARY_PATH=/Applications/YourKit_Java_Profiler_8.0.23.app/bin/mac
+export CDT=-agentlib:jdwp=transport=dt_socket,address=8021,server=y,suspend=n
+CLASSPATH=/Users/stuart/repos/scratch/out/production/scratch:src/clj:test:test-classes:classes/:script/jline-0.9.94.jar:../clojure-contrib/target/clojure-contrib-1.2.0-SNAPSHOT.jar:lib/jsr166y.jar
+
+java $CDT -Xmx3G $@ -cp $CLASSPATH jline.ConsoleRunner clojure.main -r
+
+# -agentlib:yjpagent 

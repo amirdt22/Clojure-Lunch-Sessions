@@ -1,0 +1,6 @@
+#!/bin/sh
+CLASSPATH=clojure-1.1.0-master-SNAPSHOT.jar:script/jline-0.9.94.jar
+
+java -Xmx3G $@ -cp $CLASSPATH jline.ConsoleRunner clojure.main -r
+
+# -agentlib:yjpagent 

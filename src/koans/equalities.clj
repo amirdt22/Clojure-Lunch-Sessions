@@ -1,21 +1,24 @@
 (meditations
   "We shall contemplate truth by testing reality, via equality."
-  (= __ true)
+  (= true true)
 
   "To understand reality, we must compare our expectations against reality."
-  (= __ (+ 1 1))
+  (= 2 (+ 1 1))
 
   "You can test equality of many things"
-  (= (+ 3 4) __ (+ 2 __))
+  (= (+ 3 4) 7 (+ 2 5))
 
   "Some things may appear different, but be the same"
-  (= 2 2/1 __)
+  (= 2 2/1 (* 2 1))
 
   "You cannot generally float to heavens of integers"
-  (= __ (= 2 2.0))
+  (= false (= 2 2.0))
 
   "But a looser equality is also possible"
-  (== 2.0 2 __)
+  (== 2.0 2 2.000000)
+
+  "But another looser equality is also possible"
+  (== 5.0E99999 2.00E10000)
 
   "When things cannot be equal, they must be different"
-  (not= nil __))
+  (not= nil 0))

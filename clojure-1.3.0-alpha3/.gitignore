@@ -1,0 +1,9 @@
+test-classes/*
+classes/*
+*jar
+pom.xml
+clojure.iws
+clojure.ipr
+nbproject/private/
+*.zip
+dist

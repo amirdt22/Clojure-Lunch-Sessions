@@ -1,0 +1,6 @@
+#!/bin/sh
+
+git co "$1"
+ant
+echo "$1" > "$1".txt
+script/time >>"$1".txt
