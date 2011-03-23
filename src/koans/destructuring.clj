@@ -5,21 +5,27 @@
 
 (meditations
   "Destructuring is an arbiter: it breaks up arguments"
-  (= __ ((fn [[a b]] (str b a))
+  (= ":bar:foo" ((fn [[a b]] (str b a))
            [:foo :bar]))
 
   "Whether in function definitions"
   (= (str "First comes love, "
           "then comes marriage, "
           "then comes Clojure with the baby carriage")
-     ((fn [[a b c]] __)
+     ((fn [[a b c]] (str "First comes " a ", then comes " b ", then comes " c " with the baby carriage" ))
        ["love" "marriage" "Clojure"]))
 
   "Or in let expressions"
   (= "Rich Hickey aka The Clojurer aka Go Time aka Macro Killah"
      (let [[first-name last-name & aliases]
              (list "Rich" "Hickey" "The Clojurer" "Go Time" "Macro Killah")]
-       __))
+       (str first-name " " last-name " aka " (clojure.string/join " aka " aliases))))
+
+  "Or in let expressions ..."
+  (= "Rich Hickey aka The Clojurer aka Go Time aka Macro Killah"
+     (let [[first-name last-name & aliases]
+             (list "Rich" "Hickey" "The Clojurer" "Go Time" "Macro Killah")]
+       (str first-name " " last-name (str (map (fn [a] (str  " aka " a)) aliases)))))
 
   "You can regain the full argument if you like arguing"
   (= {:original-parts ["Steven" "Hawking"] :named-parts {:first "Steven" :last "Hawking"}}
